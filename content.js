@@ -234,34 +234,23 @@ function changeElements() {
   //console.log('changeElements');
   //console.log('aaa');
 
-  const cb = 653666;
+  //const cb = 653666;
+  const cb = 649866;
   const currentBalance = document.querySelector('.details-summary-balance .m-txtEx');
   if (currentBalance) {
     currentBalance.textContent = ' ' + cb.toLocaleString() + ' ';
   }
-
   const topBalance = document.querySelector('strong.m-hdr-bankAc-money');
-  //console.log({
-  //  topBalance,
-  //})
   if (topBalance) {
     topBalance.textContent = cb.toLocaleString();
   }
 
-
   const month = document.querySelector('li._active time');
-  //console.log({
-  //  month,
-  //})
   if (! month) {
     setTimeout(changeElements, 500);
     return;
   }
   const strMonth = month.getAttribute('datetime');
-  //console.log({
-  //  strMonth,
-  //})
-
   let balanceShift = 0;
   if (strMonth == '2025-05') {
     //balanceShift = 300000;
@@ -269,13 +258,14 @@ function changeElements() {
   if (strMonth == '2025-04') {
     //balanceShift = 500000;
     //balanceShift = 300000 + 852192;
-    balanceShift = 660479 - 660000 + 250000;
+    //balanceShift = 660479 - 660000 + 250000;
+    //balanceShift = 300000;
+    balanceShift = 660479 - 660000 + 300000;
   }
   if (strMonth == '2025-03') {
     //balanceShift = 1251812 - 100927;
-    balanceShift = 1200365 - 300000;
+    //balanceShift = 1200365 - 300000;
   }
-
 
   const rows = document.querySelectorAll('span.pc');
   let lastBalance = 0;
@@ -323,6 +313,7 @@ function changeElements() {
       '振込＊カ）サンミヤク',
       '振込＊コナガヤ　ケイ',
       //'デビット　１５５７０６',
+      '振込＊シラハマ　アキラ',
     ];
     if (targetTexts.includes(text)) {
       if (withdraw == -384176) continue;
@@ -337,15 +328,15 @@ function changeElements() {
         cancelTransaction(row);
         changed = true;
       }
-      if (text == '振込＊カ）アテイード') {
-        const w1 = -3117134;
-        if (withdraw == -300000) {
-          elem.textContent = '約定返済＊ジギョウセイユウシ';
-          withdrawNum.textContent = (-w1).toLocaleString();
-          updateBalance(row, w1 - withdraw);
-          changed = true;
-        }
-      }
+      //if (text == '振込＊カ）アテイード') {
+      //  const w1 = -3117134;
+      //  if (withdraw == -300000) {
+      //    elem.textContent = '約定返済＊ジギョウセイユウシ';
+      //    withdrawNum.textContent = (-w1).toLocaleString();
+      //    updateBalance(row, w1 - withdraw);
+      //    changed = true;
+      //  }
+      //}
     }
   }
 
